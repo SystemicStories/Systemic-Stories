@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thank You - Systemic Stories</title>
   <style>
     body {
@@ -45,6 +45,18 @@
       max-width: 720px;
       margin: auto;
       text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      color: green;
+      margin-bottom: 1rem;
     }
 
     h2 {
@@ -55,21 +67,49 @@
 
     p {
       font-size: 1.1rem;
-      margin-bottom: 2rem;
     }
 
-    a.button {
+    .button {
+      margin-top: 2rem;
       display: inline-block;
       padding: 0.75rem 1.5rem;
       background-color: #b10000;
       color: #fff;
-      border-radius: 4px;
+      font-weight: bold;
       text-decoration: none;
-      font-weight: 600;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
     }
 
-    a.button:hover {
+    .button:hover {
       background-color: #8d0000;
+    }
+
+    form.feedback-form {
+      margin-top: 3rem;
+      text-align: left;
+    }
+
+    form.feedback-form label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    form.feedback-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    form.feedback-form button {
+      margin-top: 1.5rem;
+      background-color: #000;
     }
 
     footer {
@@ -80,6 +120,23 @@
       color: #555;
       border-top: 1px solid #ddd;
       margin-top: 3rem;
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 0.5rem 0 0 0;
+      }
+
+      .button {
+        display: block;
+        margin: 1rem auto 0 auto;
+      }
     }
   </style>
 </head>
@@ -96,9 +153,17 @@
   </header>
 
   <main>
-    <h2>Thank You for Sharing</h2>
-    <p>Your story has been received. We appreciate your courage and honesty in sharing your experience with us.</p>
-    <a href="index.html" class="button">Return to Home</a>
+    <div class="success-icon">✅</div>
+    <h2>Thank You for Sharing Your Story</h2>
+    <p>Your voice matters. We’re grateful for your courage and contribution. Together, we can spark change through storytelling.</p>
+    <a href="submit.html" class="button">Share Another Story</a>
+    <a href="index.html" class="button" style="margin-left: 1rem;">Return Home</a>
+
+    <form class="feedback-form" action="https://formspree.io/f/xnnzglzr" method="POST">
+      <label for="feedback">Have any feedback for us?</label>
+      <textarea id="feedback" name="feedback" placeholder="We’d love to hear your thoughts..." required></textarea>
+      <button type="submit" class="button">Submit Feedback</button>
+    </form>
   </main>
 
   <footer>
